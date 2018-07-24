@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<div class="container-fluid" style="padding-left: 6%; padding-right: 6%; padding-top: 7%;">    		
+    <div class="row">
+    	<div class="col-md-12">
+    		<h4>
+    			Current Test 
+    			<small class="addLabel" [routerLink]="['/createTest']">
+    				<i class="fas fa-plus-circle" style="margin-right: 6px;"></i>Add a new test
+    			</small>
+    		</h4>
+    		<table class="table" style="margin-top: 2%;">
+    			<thead>
+      				<tr>
+        				<th>Index</th>
+        				<th>Designation</th>
+						<th>Skills</th>
+						<th>Questions</th>
+						<th>Recruiter</th>
+						<th colspan="2">Actions</th>
+      				</tr>
+    			</thead>
+    			<tbody>
+      				<tr *ngFor="let test of allTests; let i = index">
+        				<td>{{i+1}}</td>
+        				<td>{{test.designation}}</td>
+						<td>{{test.skills}}</td>
+						<td>{{test.question_IDs.length}}</td>
+						<td>{{test.recruiter_id}}</td>
+						<td>
+							<button class="btn btn-danger" (click)="deleteTest(test)">Delete</button>
+							<a class="btn btn-warning" (click)="shareTest(test)">Share</a>
+							<!-- Modal HTML -->
+							<!-- <div id="myModal" class="modal fade">
+								<div class="modal-dialog modal-confirm">
+									<div class="modal-content">
+										<div class="modal-header">	
+											<h4 class="modal-title"><span style="text-align:center">Are you sure?</span></h4>
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+										</div>
+										<div class="modal-body">
+											<p>Do you really want to delete this record? <br> This process cannot be undone.</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+											<a type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteTest(test, i)">Delete</a>
+										</div>
+									</div>
+								</div>
+							</div>  -->
+						</td>
+						
+      				</tr>
+      			</tbody>
+      		</table>		
+    	</div>
+    </div>
+</div>
